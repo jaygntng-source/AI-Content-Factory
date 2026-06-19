@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI Content Factory - Platform Konten AI Premium</title>
+    <meta name="description" content="Platform pembuatan konten berbasis AI untuk Content Creator, Influencer, UMKM, dan Agency. Hasilkan ide, caption, script, dan strategi dengan AI modern."/>
+    <meta property="og:title" content="AI Content Factory"/>
+    <meta property="og:description" content="Create content. Powered by Intelligence."/>
+    <meta property="og:type" content="website"/>
+    <meta name="keywords" content="AI content, content creator, influencer, UMKM, marketing, caption generator, script AI"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== MODAL PEMBAYARAN ===== -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2>💎 Langganan AI Content Factory</h2>
+            <p>Pilih metode pembayaran:</p>
+            <div class="payment-methods">
+                <button class="btn-payment" id="payWA">💬 WhatsApp</button>
+                <button class="btn-payment" id="paySaweria">☕ Saweria</button>
+                <button class="btn-payment" id="payPayPal">💳 PayPal</button>
+            </div>
+            <p style="margin-top:16px;font-size:0.85rem;color:#71717a;">
+                Atau transfer ke BCA: 1234567890 a.n Fikri
+            </p>
+            <p style="font-size:0.75rem;color:#52525b;margin-top:8px;">
+                Konfirmasi pembayaran via WhatsApp
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="2" y="2" width="28" height="28" rx="8" stroke="url(#g1)" stroke-width="2"/>
+                    <path d="M10 16L14 20L22 12" stroke="url(#g1)" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="22" cy="10" r="1.5" fill="#8B5CF6"/>
+                    <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#EC4899"/></linearGradient></defs>
+                </svg>
+                <span>AI CONTENT</span><span class="highlight">FACTORY</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <button class="btn-primary nav-cta">Launch AI</button>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">✨ AI-Powered Content Suite</div>
+                <h1>Create Content.<br><span class="gradient-text">Powered By Intelligence.</span></h1>
+                <p>Hasilkan ide, caption, script, dan strategi menggunakan bantuan AI modern. Platform all-in-one untuk kreator dan bisnis.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-large" id="heroGenerate">Generate Content</button>
+                    <button class="btn-secondary btn-large" id="heroExplore">Explore Platform</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number" data-count="150">0</span><span>+ Content Generated</span></div>
+                    <div class="stat-item"><span class="stat-number" data-count="98">0</span><span>% Satisfaction Rate</span></div>
+                    <div class="stat-item"><span class="stat-number" data-count="50">0</span><span>+ Creator Trusted</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <span>AI Dashboard</span>
+                        <div class="dots"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="dashboard-body">
+                        <div class="dash-card floating-card" style="animation-delay:0s">
+                            <span>📝</span> Caption Generated
+                            <strong>12.4K</strong>
+                        </div>
+                        <div class="dash-card floating-card" style="animation-delay:0.4s">
+                            <span>🔥</span> Viral Ideas
+                            <strong>10</strong>
+                        </div>
+                        <div class="dash-card floating-card" style="animation-delay:0.8s">
+                            <span>📊</span> Content Score
+                            <strong>98%</strong>
+                        </div>
+                    </div>
+                    <div class="dashboard-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓ Scroll</div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Features</span>
+                <h2>Everything You Need to <span class="gradient-text">Dominate Content</span></h2>
+                <p>Tools designed for creators, marketers, and agencies to produce high-quality content at scale.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>AI Caption Studio</h3>
+                    <p>Membuat caption menarik untuk Instagram, TikTok, dan platform lainnya dalam hitungan detik.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Idea Generator</h3>
+                    <p>Temukan ide konten trending yang sesuai dengan niche dan audiens target Anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Video Script Writer</h3>
+                    <p>Buat script video pendek yang engaging untuk TikTok, Reels, dan YouTube Shorts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Content Planner</h3>
+                    <p>Atur jadwal konten mingguan dengan tampilan kalender yang intuitif.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Brand Voice AI</h3>
+                    <p>Jaga konsistensi identitas brand dengan analisis tone dan gaya penulisan.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Performance Intelligence</h3>
+                    <p>Analisis performa konten dengan insight berbasis data yang akurat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AI DASHBOARD SIMULATOR ===== -->
+    <section class="ai-dashboard" id="tools">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">AI Studio</span>
+                <h2>Generate Content <span class="gradient-text">Instantly</span></h2>
+                <p>Masukkan ide konten Anda dan biarkan AI bekerja.</p>
+            </div>
+            <div class="dashboard-simulator">
+                <div class="simulator-box">
+                    <div class="sim-header">
+                        <span>🧠 AI Content Studio</span>
+                    </div>
+                    <div class="sim-body">
+                        <textarea id="aiPrompt" placeholder="Jelaskan ide konten kamu... Contoh: Tips makeup untuk pemula"></textarea>
+                        <div class="sim-controls">
+                            <div class="control-group">
+                                <label>Platform</label>
+                                <select id="platformSelect">
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="TikTok">TikTok</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="Facebook">Facebook</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label>Tone</label>
+                                <select id="toneSelect">
+                                    <option value="Professional">Professional</option>
+                                    <option value="Funny">Funny</option>
+                                    <option value="Luxury">Luxury</option>
+                                    <option value="Educational">Educational</option>
+                                    <option value="Creative">Creative</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-primary btn-generate" id="generateBtn">⚡ GENERATE</button>
+                        <div class="ai-result" id="aiResult" style="display:none;">
+                            <div class="result-loading" id="resultLoading">⏳ AI sedang berpikir...</div>
+                            <div class="result-content" id="resultContent" style="display:none;">
+                                <div class="result-text" id="resultText"></div>
+                                <div class="result-actions">
+                                    <button class="btn-copy" id="copyBtn">📋 Copy</button>
+                                    <button class="btn-regenerate" id="regenerateBtn">🔄 Generate Ulang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTENT CALENDAR ===== -->
+    <section class="calendar-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Planner</span>
+                <h2>Content <span class="gradient-text">Calendar</span></h2>
+                <p>Rencanakan konten mingguan dengan mudah.</p>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ANALYTICS ===== -->
+    <section class="analytics-section" id="analytics">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Analytics</span>
+                <h2>Performance <span class="gradient-text">Dashboard</span></h2>
+                <p>Pantau pertumbuhan dan engagement konten Anda.</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-number" data-count="12450">0</div>
+                    <span>Followers</span>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number" data-count="8750">0</div>
+                    <span>Reach</span>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number" data-count="3200">0</div>
+                    <span>Engagement</span>
+                </div>
+                <div class="analytics-card">
+                    <div class="analytics-number" data-count="580">0</div>
+                    <span>Conversion</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="analyticsChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TARGET USERS ===== -->
+    <section class="target-users">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">For You</span>
+                <h2>Built for <span class="gradient-text">Everyone</span></h2>
+            </div>
+            <div class="users-grid">
+                <div class="user-card"><span>🎨</span><h3>Creator</h3><p>Bangun audiens lebih cepat dengan konten berkualitas.</p></div>
+                <div class="user-card"><span>💼</span><h3>Business</h3><p>Skalakan marketing dengan strategi konten yang tepat.</p></div>
+                <div class="user-card"><span>🏢</span><h3>Agency</h3><p>Kelola client lebih efisien dengan tools all-in-one.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Pricing</span>
+                <h2>Choose Your <span class="gradient-text">Plan</span></h2>
+            </div>
+            <div class="pricing-grid">
+                <!-- FREE -->
+                <div class="pricing-card">
+                    <span class="plan-name">FREE</span>
+                    <div class="price">Rp0</div>
+                    <ul>
+                        <li>✓ 5 AI Generations</li>
+                        <li>✓ Basic Templates</li>
+                        <li>✓ Community Access</li>
+                    </ul>
+                    <button class="btn-secondary" data-plan="free">Get Started</button>
+                </div>
+                <!-- STARTER -->
+                <div class="pricing-card featured">
+                    <span class="plan-badge">POPULAR</span>
+                    <span class="plan-name">STARTER</span>
+                    <div class="price">Rp49.999<span>/mo</span></div>
+                    <ul>
+                        <li>✓ Unlimited AI Tools</li>
+                        <li>✓ Analytics Dashboard</li>
+                        <li>✓ Content Calendar</li>
+                        <li>✓ Export Templates</li>
+                    </ul>
+                    <button class="btn-primary" data-plan="starter">Start Free Trial</button>
+                </div>
+                <!-- PRO -->
+                <div class="pricing-card">
+                    <span class="plan-name">PRO</span>
+                    <div class="price">Rp149.999<span>/mo</span></div>
+                    <ul>
+                        <li>✓ All Starter Features</li>
+                        <li>✓ Brand Voice AI</li>
+                        <li>✓ API Access</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                    <button class="btn-secondary" data-plan="pro">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Testimonials</span>
+                <h2>What <span class="gradient-text">Creators Say</span></h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"AI Content Factory saved me hours of brainstorming. Caption generator is a game changer!"</p>
+                    <div class="testimonial-author">— Andi, Content Creator</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Platform ini membantu agency saya menghasilkan konten 3x lebih cepat. Highly recommended!"</p>
+                    <div class="testimonial-author">— Sarah, Agency Owner</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Sebagai pemula, saya jadi punya panduan konten yang jelas dan profesional."</p>
+                    <div class="testimonial-author">— Rizky, Freelancer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">FAQ</span>
+                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Apa itu AI Content Factory?</div>
+                    <div class="faq-answer">AI Content Factory adalah platform berbasis AI untuk membantu kreator, bisnis, dan agensi menghasilkan konten berkualitas tinggi dengan cepat dan efisien.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah gratis?</div>
+                    <div class="faq-answer">Ya, ada paket Free dengan 5 generasi AI. Untuk fitur unlimited, kamu bisa upgrade ke paket Starter atau Pro.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah bisa digunakan untuk bisnis?</div>
+                    <div class="faq-answer">Tentu! Platform ini dirancang untuk membantu bisnis dan agency dalam strategi konten marketing mereka.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Apakah mendukung semua sosial media?</div>
+                    <div class="faq-answer">Ya, AI Content Factory mendukung Instagram, TikTok, YouTube, Facebook, dan platform lainnya.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <span class="logo">AI CONTENT FACTORY</span>
+                <p>Platform konten AI premium untuk kreator dan bisnis modern.</p>
+                <div class="social-icons">
+                    <span>📱</span><span>🐦</span><span>📸</span><span>💼</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div><h4>Product</h4><a href="#features">Features</a><a href="#tools">Tools</a><a href="#pricing">Pricing</a></div>
+                <div><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Contact</a></div>
+                <div><h4>Support</h4><a href="#faq">FAQ</a><a href="#">Help Center</a><a href="#">Privacy</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AI Content Factory. All rights reserved.</p>
+            <p class="watermark">Created by Fikri</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
